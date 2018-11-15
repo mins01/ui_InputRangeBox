@@ -153,7 +153,7 @@
 	border-radius: 0 50% 50% 0;
 }
 
-/* */
+/* Number box */
 
 .inputNumberBox{
 	width: 8em;
@@ -175,4 +175,24 @@
 .inputNumberBox input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+/**
+* design-1
+* @type {[type]}
+*/
+.inputNumberBox-design-1 input{
+	-webkit-appearance: none;
+	background-color: #fff;
+	height:1em;
+	border-width: 0;
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.8) inset;
+}
+.inputNumberBox.inputNumberBox-design-1 button{
+	background-color: #aaa;
+}
+.inputNumberBox.inputNumberBox-design-1 button.btn-m{
+	border-radius: 50% 0 0 50%;
+}
+.inputNumberBox.inputNumberBox-design-1 button.btn-p{
+	border-radius: 0 50% 50% 0;
 }
