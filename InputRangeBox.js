@@ -84,6 +84,9 @@ var InputRangeBox={
     //-- 버튼 이벤트
     IRB.btn_m.actFn = function(el){
       return function(){
+        if(el.readOnly ||el.disabled ){
+          return false;
+        }
         try{
           el.stepDown();
         }catch(e){          
@@ -98,7 +101,9 @@ var InputRangeBox={
     }(IRB.input)
     IRB.btn_p.actFn = function(el){
       return function(){
-        
+        if(el.readOnly ||el.disabled ){
+          return false;
+        }
         try{
           el.stepUp();
         }catch(e){

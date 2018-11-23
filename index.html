@@ -80,7 +80,17 @@
 				<input type="range" value="12" min="0" max="300" step="1" onchange="alert(this.value)" >
 				<button class="btn-m" onclick="alert('down : '+this.input.value)"></button>
 				<button class="btn-p"  onclick="alert('up : '+ this.input.value)"></button>
-			</div>				
+			</div>
+		</form>
+		
+		<h3>readOnly / disabled</h3>
+		<form >
+			<div class="inputRangeBox readOnly" data-prefix="" style="width:10em" >
+				<input type="range" value="12" min="0" max="300" step="1" readOnly >
+			</div> / 
+			<div class="inputRangeBox disabled" data-prefix="disabled : " style="width:10em" >
+				<input type="range" value="12" min="0" max="300" step="1" disabled >
+			</div>
 		</form>
 		
 		
@@ -116,6 +126,12 @@
 			<button class="btn-m"  style="background-color:blue;color:#fff;"></button>
 			<button class="btn-p"  style="background-color:red;color:#fff;"></button>
 		</div>
+		/ readOnly : <div class="inputRangeBox inputRangeBox-design-1  readOnly" data-prefix="readOnly : " style="width:10em" >
+			<input type="range" value="12" min="0" max="300" step="1" readOnly >
+		</div> / disabled : 
+		<div class="inputRangeBox inputRangeBox-design-1  disabled" data-prefix="disabled : " style="width:10em" >
+			<input type="range" value="12" min="0" max="300" step="1" disabled >
+		</div>
 		/너비 100%
 		<div class="inputRangeBox inputRangeBox-design-1" data-value="" data-prefix="D " data-suffix="day" style="width:100%;">
 			<input type="range" value="-50" min="-100" max="0" step="2"  />
@@ -146,9 +162,24 @@
 		<div class="inputRangeBox inputNumberBox" data-value="" data-prefix="d " data-suffix="day" >
 			<input type="number" value="-100" min="-100" max="100" step="3"  />
 		</div>
+		<div class="inputRangeBox inputNumberBox readOnly">
+			<input type="number" value="12" min="0" max="300" step="1" readOnly >
+		</div> / 
+		<div class="inputRangeBox inputNumberBox disabled">
+			<input type="number" value="12" min="0" max="300" step="1" disabled >
+		</div>
+		
 		<div class="inputRangeBox inputNumberBox inputNumberBox-design-1" data-value=""  data-suffix="px" data-toFixed="3">
 			<input type="number" value="-100" min="-100" max="100" step="0.1"  />
 		</div>
+
+		<div class="inputRangeBox inputNumberBox inputNumberBox-design-1 readOnly">
+			<input type="number" value="12" min="0" max="300" step="1" readOnly >
+		</div> / 
+		<div class="inputRangeBox inputNumberBox inputNumberBox-design-1 disabled">
+			<input type="number" value="12" min="0" max="300" step="1" disabled >
+		</div>
+		
 		<div class="inputRangeBox inputNumberBox inputNumberBox-design-1" data-value=""  data-suffix="px" data-toFixed="1">
 			<input type="number" value="-100" min="-100" max="100" step="0.1"  />
 		</div>
