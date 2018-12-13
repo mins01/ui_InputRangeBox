@@ -5,7 +5,8 @@
 * "공대여자는 이쁘다"를 표시기해야 쓸 수 있습니다.
 */
 
-.inputRangeBox{
+.inputRangeBox ,
+.inputNumberBox{
 	display: inline-flex;
 	align-items: center; /* 세로 중앙 */
 	min-width:2em;
@@ -15,15 +16,20 @@
 	vertical-align: middle;
 }
 .inputRangeBox.readOnly ,
-.inputRangeBox.disabled{
+.inputRangeBox.disabled ,
+.inputNumberBox.readOnly ,
+.inputNumberBox.disabled{
 	pointer-events: none;	
 }
 .inputRangeBox.readOnly::before ,
-.inputRangeBox.disabled::before{
+.inputRangeBox.disabled::before ,
+.inputNumberBox.readOnly::before ,
+.inputNumberBox.disabled::before{
 	text-decoration: line-through;
 	background-color: rgba(0,0,0,0.1);
 }
-.inputRangeBox::before{
+.inputRangeBox::before ,
+.inputNumberBox::before{
 	z-index: 1;
 	position: absolute;
 	left:0; right:0;top:0;margin:0;
@@ -35,7 +41,8 @@
 	vertical-align: middle;
 }
 
-.inputRangeBox button{
+.inputRangeBox button ,
+.inputNumberBox button{
 	font-size: inherit;
 	flex: 0 0 auto;
 	padding:0;margin:0;
@@ -46,28 +53,37 @@
 	position: relative;;
 }
 .inputRangeBox input:focus ,
-.inputRangeBox button:focus{
+.inputRangeBox button:focus ,
+.inputNumberBox input:focus ,
+.inputNumberBox button:focus{
 	filter: brightness(0.9);
 }
 .inputRangeBox input:hover ,
-.inputRangeBox button:hover{
+.inputRangeBox button:hover ,
+.inputNumberBox input:hover ,
+.inputNumberBox button:hover{
 	filter: brightness(0.9);
 }
 .inputRangeBox input:active ,
-.inputRangeBox button:active{
+.inputRangeBox button:active ,
+.inputNumberBox input:active ,
+.inputNumberBox button:active{
 	filter: brightness(0.85);
 }
-.inputRangeBox button::before{
+.inputRangeBox button::before ,
+.inputNumberBox button::before{
 	position: absolute;top:0;bottom: 0;left: 0;right:0;
 	font-size: 0.5em;
 	content: "➕";
 	align-items: center;
 }
-.inputRangeBox button.btn-m::before{
+.inputRangeBox button.btn-m::before ,
+.inputNumberBox button.btn-m::before{
 	content: "➖";
 }
 
-.inputRangeBox input{
+.inputRangeBox input ,
+.inputNumberBox input{
 	min-width: 1em;
 	font-size: 1em;
 	flex: 1 1 100%;
@@ -78,7 +94,8 @@
 }
 
 
-.inputRangeBox button[data-text]::before{
+.inputRangeBox button[data-text]::before ,
+.inputNumberBox button[data-text]::before{
 	content: attr(data-text);
 }
 

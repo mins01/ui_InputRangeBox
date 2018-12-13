@@ -76,13 +76,17 @@
 		</div>
 		<h3>이벤트</h3>
 		<form onchange="console.log('form.onchange')"  oninput="console.log('form.oninput')">
-			<div class="inputRangeBox" data-suffix="px" style="font-size:12px;width:100px" >
-				<input type="range" value="12" min="0" max="300" step="1" onchange="alert(this.value)" >
-				<button class="btn-m" onclick="alert('down : '+this.input.value)"></button>
-				<button class="btn-p"  onclick="alert('up : '+ this.input.value)"></button>
+			<div id="testRangeEvent" class="inputRangeBox" data-suffix="px" style="font-size:12px;width:100px" >
+				<input type="range" value="12" min="0" max="300" step="1" onchange="console.log('input',this.value)" >
+				<button class="btn-m" onclick="console.log('down : '+this.input.value)"></button>
+				<button class="btn-p"  onclick="console.log('up : '+ this.input.value)"></button>
 			</div>
 		</form>
-		
+		<script>
+		var testRangeEvent = document.querySelector("#testRangeEvent");
+		testRangeEvent.addEventListener("change",function(evt){console.log(evt.type)})
+		testRangeEvent.addEventListener("input",function(evt){console.log(evt.type)})
+		</script>
 		<h3>readOnly / disabled</h3>
 		<form >
 			<div class="inputRangeBox readOnly" data-prefix="" style="width:10em" >
@@ -159,50 +163,55 @@
 		<h3>일반 Number</h3>
 		<input type="number" value="1" min="0" max="100" step="3"  />
 		<h3>기본형</h3>
-		<div class="inputRangeBox inputNumberBox" data-value="" data-prefix="d " data-suffix="day" >
+		<div class="inputNumberBox" data-value="" data-prefix="d " data-suffix="day" >
 			<input type="number" value="-100" min="-100" max="100" step="3"  />
 		</div>
-		<div class="inputRangeBox inputNumberBox readOnly">
+		<div class="inputNumberBox readOnly">
 			<input type="number" value="12" min="0" max="300" step="1" readOnly >
 		</div> / 
-		<div class="inputRangeBox inputNumberBox disabled">
+		<div class="inputNumberBox disabled">
 			<input type="number" value="12" min="0" max="300" step="1" disabled >
 		</div>
 		
-		<div class="inputRangeBox inputNumberBox inputNumberBox-design-1" data-value=""  data-suffix="px" data-toFixed="3">
+		<div class="inputNumberBox inputNumberBox-design-1" data-value=""  data-suffix="px" data-toFixed="3">
 			<input type="number" value="-100" min="-100" max="100" step="0.1"  />
 		</div>
 
-		<div class="inputRangeBox inputNumberBox inputNumberBox-design-1 readOnly">
+		<div class="inputNumberBox inputNumberBox-design-1 readOnly">
 			<input type="number" value="12" min="0" max="300" step="1" readOnly >
 		</div> / 
-		<div class="inputRangeBox inputNumberBox inputNumberBox-design-1 disabled">
+		<div class="inputNumberBox inputNumberBox-design-1 disabled">
 			<input type="number" value="12" min="0" max="300" step="1" disabled >
 		</div>
 		
-		<div class="inputRangeBox inputNumberBox inputNumberBox-design-1" data-value=""  data-suffix="px" data-toFixed="1">
+		<div class="inputNumberBox inputNumberBox-design-1" data-value=""  data-suffix="px" data-toFixed="1">
 			<input type="number" value="-100" min="-100" max="100" step="0.1"  />
 		</div>
-		<div class="inputRangeBox inputNumberBox inputNumberBox-design-1" data-value="" data-prefix="D " data-suffix="day" style="font-size:40px;width:auto;">
+		<div class="inputNumberBox inputNumberBox-design-1" data-value="" data-prefix="D " data-suffix="day" style="font-size:40px;width:auto;">
 			<input type="number" value="-50" min="-100" max="100" step="2" style="width: 4ex;"  />
 		</div>
-		<div class="inputRangeBox inputNumberBox inputNumberBox-design-1 " data-suffix="%" style="width:20em">
+		<div class="inputNumberBox inputNumberBox-design-1 " data-suffix="%" style="width:20em">
 			<input type="number" value="1" min="0" max="100000" step="1000" style="background-color:#abc"  />
 			<button class="btn-m"  style="background-color:blue;color:#fff;"></button>
 			<button class="btn-p"  style="background-color:red;color:#fff;"></button>
 		</div>
-		<div class="inputRangeBox inputNumberBox inputNumberBox-design-1" data-value="" data-prefix="D " data-suffix="day" style="font-size:30px;width:100%;">
+		<div class="inputNumberBox inputNumberBox-design-1" data-value="" data-prefix="D " data-suffix="day" style="font-size:30px;width:100%;">
 			<input type="number" value="-50" min="-100" max="0" step="2"  />
 		</div>
 		
 		<h3>이벤트</h3>
-		<form onchange="console.log('form.onchange')"  oninput="console.log('form.oninput')">
-		이벤트 테스트	<div class="inputRangeBox inputNumberBox" data-suffix="px" style="font-size:12px;width:100px" >
-				<input type="number" value="12" min="0" max="300" step="1" onchange="alert(this.value)" >
-				<button class="btn-m" onclick="alert('down : '+this.input.value)"></button>
-				<button class="btn-p"  onclick="alert('up : '+ this.input.value)"></button>
+		<form onchange="console.log('form',event.type)"  oninput="console.log('form',event.type)">
+		이벤트 테스트	<div id="testNumberEvent" class="inputNumberBox" data-suffix="px" style="font-size:12px;width:100px" >
+				<input type="number" value="12" min="0" max="300" step="1">
+				<button class="btn-m" onclick="console.log('down : '+this.input.value)"></button>
+				<button class="btn-p"  onclick="console.log('up : '+ this.input.value)"></button>
 			</div>				
 		</form>
+		<script>
+		var testNumberEvent = document.querySelector("#testNumberEvent");
+		testNumberEvent.addEventListener("change",function(evt){console.log(evt.type)})
+		testNumberEvent.addEventListener("input",function(evt){console.log(evt.type)})
+		</script>
 	</div>
 </body>
 </html>

@@ -20,7 +20,7 @@
 
 var InputRangeBox={
   "onload":function(){
-    var els = document.querySelectorAll('.inputRangeBox')
+    var els = document.querySelectorAll('.inputRangeBox,.inputNumberBox ')
     for(var i=0,m=els.length;i<m;i++){
       InputRangeBox.init(els[i])	
     }
@@ -124,7 +124,7 @@ var InputRangeBox={
         return false;
       }
     }(el)
-    var clearFn = function(el){
+    var clearFnUp = function(el){
       return function(evt){
         if(el.tm){ clearInterval(el.tm) }
         var input_event = new CustomEvent('input',{bubbles: true, cancelable: true, detail: {}});
@@ -132,6 +132,12 @@ var InputRangeBox={
         input_event = new CustomEvent('change',{bubbles: true, cancelable: true, detail: {}});
         el.dispatchEvent(input_event);
         IRB.btn_p.addEventListener('mouseout',clearFn);
+        return false
+      }
+    }(el)
+    var clearFn = function(el){
+      return function(evt){
+        if(el.tm){ clearInterval(el.tm) }
         return false
       }
     }(el)
@@ -151,17 +157,17 @@ var InputRangeBox={
     if(PointerEvent){
       
       IRB.btn_m.addEventListener('pointerdown',evtFn);
-      IRB.btn_m.addEventListener('pointerup',clearFn);
+      IRB.btn_m.addEventListener('pointerup',clearFnUp);
       IRB.btn_m.addEventListener('pointerout',clearFn);
       IRB.btn_p.addEventListener('pointerdown',evtFn);	
-      IRB.btn_p.addEventListener('pointerup',clearFn);
+      IRB.btn_p.addEventListener('pointerup',clearFnUp);
       IRB.btn_p.addEventListener('pointerout',clearFn);
     }else{
       IRB.btn_m.addEventListener('mousedown',evtFn);
-      IRB.btn_m.addEventListener('mouseup',clearFn);				
+      IRB.btn_m.addEventListener('mouseup',clearFnUp);				
       IRB.btn_m.addEventListener('mouseout',clearFn);	
       IRB.btn_p.addEventListener('mousedown',evtFn);
-      IRB.btn_p.addEventListener('mouseup',clearFn);
+      IRB.btn_p.addEventListener('mouseup',clearFnUp);
       IRB.btn_p.addEventListener('mouseout',clearFn);
     }
     var _notouchmove = function(evt){ evt.preventDefault();evt.stopPropagation();evt.cancelBubble = true;evt.returnValue = false;return false;}
