@@ -19,7 +19,10 @@
 })();
 
 var InputRangeBox={
-  "onload":function(node){
+  "onload":function(evt){
+    InputRangeBox.autoInit(evt.target)
+  },
+  "autoInit":function(node){
     if(!node) node = document;
     var els = node.querySelectorAll('.inputRangeBox,.inputNumberBox ')
     for(var i=0,m=els.length;i<m;i++){
