@@ -19,8 +19,9 @@
 })();
 
 var InputRangeBox={
-  "onload":function(){
-    var els = document.querySelectorAll('.inputRangeBox,.inputNumberBox ')
+  "onload":function(node){
+    if(!node) node = document;
+    var els = node.querySelectorAll('.inputRangeBox,.inputNumberBox ')
     for(var i=0,m=els.length;i<m;i++){
       InputRangeBox.init(els[i])	
     }
