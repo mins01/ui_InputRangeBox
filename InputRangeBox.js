@@ -174,7 +174,12 @@ var InputRangeBox={
       IRB.btn_p.addEventListener('mouseup',clearFnUp);
       IRB.btn_p.addEventListener('mouseout',clearFn);
     }
-    var _notouchmove = function(evt){ evt.preventDefault();evt.stopPropagation();evt.cancelBubble = true;evt.returnValue = false;return false;}
+    var _notouchmove = function(evt){ 
+      if(evt.cancelable){
+        evt.preventDefault();evt.stopPropagation();evt.returnValue = false;  
+      }
+      return false;  
+    }
     IRB.btn_m.addEventListener('touchmove',_notouchmove);
     IRB.btn_p.addEventListener('touchmove',_notouchmove);
     // IRB.btn_m.addEventListener('touchstart',_notouchmove);
