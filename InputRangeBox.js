@@ -20,7 +20,7 @@
 
 var InputRangeBox={
   "onload":function(evt){
-    InputRangeBox.autoInit(evt.target)
+    InputRangeBox.autoInit((evt&&evt.target)?evt.target:document)
   },
   "autoInit":function(node){
     if(!node) node = document;
