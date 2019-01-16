@@ -86,6 +86,7 @@ var InputRangeBox={
     IRB.input.addEventListener('input',oninput)
     IRB.input.addEventListener('change',oninput)
     //-- 버튼 이벤트
+    var input_event = new CustomEvent('input',{bubbles: true, cancelable: true, detail: {}});
     IRB.btn_m.actFn = function(el){
       return function(){
         if(el.readOnly ||el.disabled ){
@@ -99,7 +100,6 @@ var InputRangeBox={
           toFixed = (toFixed==null)?0:parseInt(toFixed);
           el.value = (parseFloat(el.value)-parseFloat(el.step?el.step:1)).toFixed(toFixed);
         }
-        var input_event = new CustomEvent('input',{bubbles: true, cancelable: true, detail: {}});
         el.dispatchEvent(input_event);
       }
     }(IRB.input)
@@ -116,7 +116,6 @@ var InputRangeBox={
           toFixed = (toFixed==null)?0:parseInt(toFixed);
           el.value = (parseFloat(el.value)+parseFloat(el.step?el.step:1)).toFixed(toFixed);
         }
-        var input_event = new CustomEvent('input',{bubbles: true, cancelable: true, detail: {}});
         el.dispatchEvent(input_event);
       }
     }(IRB.input)
@@ -131,10 +130,9 @@ var InputRangeBox={
     var clearFnUp = function(el){
       return function(evt){
         if(el.tm){ clearInterval(el.tm) }
-        var input_event = new CustomEvent('input',{bubbles: true, cancelable: true, detail: {}});
         this.dispatchEvent(input_event);
-        input_event = new CustomEvent('change',{bubbles: true, cancelable: true, detail: {}});
-        el.dispatchEvent(input_event);
+        var chang_event = new CustomEvent('change',{bubbles: true, cancelable: true, detail: {}});
+        el.dispatchEvent(chang_event);
         IRB.btn_p.addEventListener('mouseout',clearFn);
         return false
       }
@@ -197,6 +195,8 @@ var InputRangeBox={
       },
       set:function(txt){
         IRB.input.value = parseFloat(txt.toString().replace(/[^\.0-9]/g,''))
+        IRB.input.dispatchEvent(input_event);
+
       },
       //value:"init", //기본값 (get,set 과 같이 사용불가)
       //writable: true, //값 수정 가능여부 (get,set 과 같이 사용불가)

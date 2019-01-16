@@ -206,6 +206,15 @@
 			<input type="number" value="-50" min="-100" max="0" step="2"  />
 		</div>
 		
+		<h3>value</h3>
+		<div  id="inputNumberBox_test_value"  class="inputNumberBox" data-prefix="#" data-suffix="%" data-toFixed="3">
+			<input id="input2_test_value" type="number" value="1" min="0" max="100" step="0.001"  />
+		</div>
+		<button type="button" onclick="alert(document.getElementById('input2_test_value').value)">input.value</button>
+		<button type="button" onclick="alert(document.getElementById('inputNumberBox_test_value').value)">inputNumberBox.value</button>
+		<button type="button" onclick="document.getElementById('inputNumberBox_test_value').value = 10 ">inputNumberBox.value = 10</button>
+		<button type="button" onclick="document.getElementById('inputNumberBox_test_value').value = '30.332' ">inputNumberBox.value = '30.332'</button>
+		
 		<h3>이벤트</h3>
 		<form onchange="console.log('form',event.type)"  oninput="console.log('form',event.type)">
 		이벤트 테스트	<div id="testNumberEvent" class="inputNumberBox" data-suffix="px" style="font-size:12px;width:100px" >
