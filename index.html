@@ -97,7 +97,14 @@
 			</div>
 		</form>
 		
-		
+		<h3>value</h3>
+		<div  id="inputRangeBox_test_value"  class="inputRangeBox" data-prefix="#" data-suffix="%" data-toFixed="3">
+			<input id="input_test_value" type="range" value="1" min="0" max="100" step="0.001"  />
+		</div>
+		<button type="button" onclick="alert(document.getElementById('input_test_value').value)">input.value</button>
+		<button type="button" onclick="alert(document.getElementById('inputRangeBox_test_value').value)">inputRangeBox.value</button>
+		<button type="button" onclick="document.getElementById('inputRangeBox_test_value').value = 10 ">inputRangeBox.value = 10</button>
+		<button type="button" onclick="document.getElementById('inputRangeBox_test_value').value = '30.332' ">inputRangeBox.value = '30.332'</button>
 		<h3>버튼</h3>
 		<div class="inputRangeBox" data-suffix="%">
 			<input type="range" value="1" min="0" max="100" step="1"  />

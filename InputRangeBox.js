@@ -32,13 +32,13 @@ var InputRangeBox={
   "init":function(el){
     var IRB = el;
     if(IRB.rib_on){
-      return false;
+      return null;
     }
     
     IRB.input = IRB.querySelector('input');
     if(!IRB.input){
       console.error("not exists input in IRB ");
-      return false;
+      return null;
     }
     
     var btn_m = IRB.querySelector(".btn-m")?IRB.querySelector(".btn-m"):document.createElement('button');
@@ -188,7 +188,21 @@ var InputRangeBox={
     // IRB.btn_p.addEventListener('touchend',_notouchmove);
     IRB.btn_m.addEventListener('contextmenu',_notouchmove);
     IRB.btn_p.addEventListener('contextmenu',_notouchmove);
-    
+    //-- 프로퍼티 동작 설정
+    Object.defineProperty(IRB, 'value', {
+      get:function(){
+        return (IRB.hasAttribute('data-prefix')?IRB.getAttribute('data-prefix'):'')
+        + (IRB.hasAttribute('data-value')?IRB.getAttribute('data-value'):'')
+        + (IRB.hasAttribute('data-suffix')?IRB.getAttribute('data-suffix'):'')
+      },
+      set:function(txt){
+        IRB.input.value = parseFloat(txt.toString().replace(/[^\.0-9]/g,''))
+      },
+      //value:"init", //기본값 (get,set 과 같이 사용불가)
+      //writable: true, //값 수정 가능여부 (get,set 과 같이 사용불가)
+      enumerable: true, //목록 열거시 표시여부
+      configurable: false //삭제 가능여부. writable 속성 변경 가능 여부
+    });
     
     //--값 초기화
     var toFixed = IRB.getAttribute('data-toFixed');
