@@ -54,8 +54,8 @@
 			
 			<li><a  href="InputRangeBox.js" download="InputRangeBox.js">JS</a> / <a href="InputRangeBox.css" download="InputRangeBox.css">CSS</a></li>
 		</ul>
-		
-		
+		<h3>기본값</h3>
+		InputRangeBox.defaultPressInterval = 200 ms // 증가/감소 기본 반복 시간 (ms)
 		<hr />
 		<h3>일반 Range</h3>
 		<input type="range" value="1" min="0" max="100" step="1"  />
@@ -167,6 +167,21 @@
 			<input type="range" value="-100" min="-100" max="0" step="1"  />
 		</div>
 		<hr />
+		<h3>attr data-interval</h3>
+		interval=10 <div class="inputRangeBox" data-interval="10" data-value="">
+			<input type="range" value="0" min="-100" max="100" step="1"  />
+		</div>
+		interval=100 <div class="inputRangeBox" data-interval="100" data-value="">
+			<input type="range" value="0" min="-100" max="100" step="1"  />
+		</div>
+		interval=200 <div class="inputRangeBox" data-interval="200" data-value="">
+			<input type="range" value="0" min="-100" max="100" step="1"  />
+		</div>
+		interval=1000 <div class="inputRangeBox" data-interval="1000" data-value="">
+			<input type="range" value="0" min="-100" max="100" step="1"  />
+		</div>
+
+		<hr />
 		<h3>일반 Number</h3>
 		<input type="number" value="1" min="0" max="100" step="3"  />
 		<h3>기본형</h3>
@@ -228,6 +243,20 @@
 		testNumberEvent.addEventListener("change",function(evt){console.log(evt.type)})
 		testNumberEvent.addEventListener("input",function(evt){console.log(evt.type)})
 		</script>
+		<h3>attr data-interval</h3>
+		interval=10 <div class="inputNumberBox" data-interval="10" data-value="">
+			<input type="number" value="0" min="-100" max="100" step="1"  />
+		</div>
+		interval=100 <div class="inputNumberBox" data-interval="100" data-value="">
+			<input type="number" value="0" min="-100" max="100" step="1"  />
+		</div>
+		interval=200 <div class="inputNumberBox" data-interval="200" data-value="">
+			<input type="number" value="0" min="-100" max="100" step="1"  />
+		</div>
+		interval=1000 <div class="inputNumberBox" data-interval="1000" data-value="">
+			<input type="number" value="0" min="-100" max="100" step="1"  />
+		</div>		
+		
 	</div>
 </body>
 </html>

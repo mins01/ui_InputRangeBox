@@ -19,6 +19,7 @@
 })();
 
 var InputRangeBox={
+  "defaultPressInterval":200, // 증가/감소 기본 반복 시간 (ms)
   "onload":function(evt){
     InputRangeBox.autoInit((evt&&evt.target)?evt.target:document)
   },
@@ -123,7 +124,9 @@ var InputRangeBox={
       return function(evt){
         if(el.tm){clearInterval(el.tm) }
         this.actFn();
-        el.tm = setInterval(this.actFn,100)
+        
+        var interval = IRB.hasAttribute('data-interval')?parseInt(IRB.getAttribute('data-interval')):InputRangeBox.defaultPressInterval
+        el.tm = setInterval(this.actFn,interval)
         return false;
       }
     }(el)
